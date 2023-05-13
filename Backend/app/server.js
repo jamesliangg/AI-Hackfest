@@ -3,6 +3,7 @@ const app = express();
 import bodyParser from "body-parser";
 import {cohereDetectLanguage} from "./cohere-functions.js";
 import {deepTranslate} from "./deepl-functions.js";
+import {mongoInsert, mongoQuery} from "./mongodb-functions.js";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,19 +19,24 @@ app.post('/api/endpoint', async function (req, res) {
     let response = "No action received.";
 
     console.log("Cohere key: " + process.env.COHERE_API_KEY);
-    let sampleText = "'Здравствуй, Мир'";
-    let cohereResponse = await cohereDetectLanguage(sampleText);
-    cohereResponse = cohereResponse.body.results[0];
-    console.log(cohereResponse);
+    // let sampleText = "'Здравствуй, Мир'";
+    // let cohereResponse = await cohereDetectLanguage(sampleText);
+    // cohereResponse = cohereResponse.body.results[0];
+    // console.log(cohereResponse);
 
     console.log("DeepL key: " + process.env.DEEPL_API_KEY);
-    sampleText = "Hello world!";
-    let deeplResponse =  await deepTranslate(sampleText, "fr");
+    // sampleText = "Hello world!";
+    // let deeplResponse =  await deepTranslate(sampleText, "fr");
+
+    console.log("MongoDB key: " + process.env.MONGO_CONNECT_STRING);
+    let mongoResponse = await mongoQuery("ingredient", "bubble tea");
+    // let mongoResponse = await mongoInsert();
 
     response = JSON.stringify({
         "action": req.body.action,
-        "cohere": cohereResponse,
-        "deepl": deeplResponse
+        // "cohere": cohereResponse,
+        // "deepl": deeplResponse,
+        "mongo": mongoResponse
     });
 
     res.send(response);
