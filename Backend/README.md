@@ -33,3 +33,6 @@ https://stackoverflow.com/questions/34198392/docker-official-registry-docker-hub
 
 ## Azure reference
 https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+
+## Cohere reference
+https://docs.cohere.com/reference/detect-language-1
