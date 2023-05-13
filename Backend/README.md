@@ -5,7 +5,7 @@ Building Docker container
 ```
 docker buildx build --platform=linux/amd64 --output type=docker -t jamesliangg/hackfest .
 
-docker run -p 3001:3001 -e COHERE_API_KEY="<COHERE_KEY>" -d jamesliangg/hackfest
+docker run -p 3001:3001 -e COHERE_API_KEY="<COHERE_KEY>" -e DEEPL_API_KEY="<DEEPL_KEY>" -d jamesliangg/hackfest
 
 docker ps
 
@@ -36,3 +36,6 @@ https://learn.microsoft.com/en-us/azure/container-instances/container-instances-
 
 ## Cohere reference
 https://docs.cohere.com/reference/detect-language-1
+
+## DeepL Reference
+https://github.com/DeepLcom/deepl-node
