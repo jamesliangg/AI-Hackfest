@@ -18,6 +18,6 @@ app.post('/api/endpoint', async function (req, res) {
     res.send(response);
 });
 
-app.listen(3000, function() {
-    console.log('Server listening at http://127.0.0.1:3000/api/endpoint');
+app.listen(3001, function() {
+    console.log('Server listening at http://127.0.0.1:3001/api/endpoint');
 });
