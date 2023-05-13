@@ -5,7 +5,9 @@ Building Docker container
 ```
 docker buildx build --platform=linux/amd64 --output type=docker -t jamesliangg/hackfest .
 
-docker run -p 3001:3001 -d jamesliangg/hackfest
+docker run -p 3001:3001 -e COHERE_API_KEY="<COHERE_KEY>" -d jamesliangg/hackfest
+
+docker ps
 
 docker logs <container id>
 
