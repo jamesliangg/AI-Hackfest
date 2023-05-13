@@ -1,4 +1,7 @@
 
+
+## Deploying to Azure
+Building Docker container
 ```
 docker buildx build --platform=linux/amd64 --output type=docker -t jamesliangg/hackfest .
 
@@ -9,9 +12,16 @@ docker logs <container id>
 docker kill <container id>
 
 docker push jamesliangg/hackfest
+```
 
-
+Image location
+```
 docker.io/jamesliangg/hackfest
+```
+
+API Endpoint
+```
+http://<CONTAINER_PUBLIC_IP>:3001/api/endpoint
 ```
 
 ## Docker reference
