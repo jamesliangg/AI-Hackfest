@@ -8,8 +8,6 @@ import Map from "./components/Map/Map";
 import Header from "./components/Header/Header";
 
 function App() {
-  const [autocomplete, setAutocomplete] = useState(null);
-
 
   return (
     <div>

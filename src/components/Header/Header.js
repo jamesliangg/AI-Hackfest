@@ -12,7 +12,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" className={classes.title}>
-          Travel Advisor
+          Name of our website
         </Typography>
 
         <Box display="flex">
@@ -28,7 +28,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
               <InputBase placeholder="Search…" classes={{ root: classes.inputRoot, input: classes.inputInput }} />
             </div>
           </Autocomplete>
-          
+
         </Box>
       </Toolbar>
     </AppBar>

@@ -9,10 +9,10 @@ import useStyles from "./styles.js";
 import myImage from "./pointer.png";
 import { LocationOnOutlined } from "@material-ui/icons";
 
-const Map = () => {
+const Map = ({ coords }) => {
   const classes = useStyles();
   const isMobile = useMediaQuery("(min-width:600px)");
-  const coordinates = { lat: 43.7688, lng: -79.3627 };
+  
   let clinicsData = [
     {
       name: "North York General Hospital",
@@ -35,8 +35,8 @@ const Map = () => {
     <div className={classes.mapContainer}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyCmz0mcoR2H7Eo3t28YJJbORo4T3MBSeKs" }}
-        defaultCenter={coordinates}
-        center={coordinates}
+        defaultCenter={coords}
+        center={coords}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
         options={""}
