@@ -11,24 +11,24 @@ const Nav = () => {
       height: '100px',
      }}>
 
-      <div style={{
+      <Link style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '10px'
+        gap: '10px',
+        width: 'min-content',
+        height: 'min-content',
+        textDecoration: 'none',
+        color: "#2D263D"
       }}>
-        <Link to="/" style={{
-          width: 'min-content',
-          height: 'min-content',
-        }}>
           <img src={Logo} alt="" style={{
             width: '80px',
             height: '80px',
             objectFit: 'contain',
-          }}/></Link>
+          }}/>
         <h2 style={{
           fontWeight: '400'
         }}>FindYours</h2>
-      </div>
+      </Link>
       
 
       <div style={{
