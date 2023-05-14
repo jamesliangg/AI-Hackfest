@@ -1,32 +1,38 @@
-import React from 'react'
-import Map from '../components/Map'
+import React, { useState, useEffect } from 'react';
+import { CssBaseline, Grid } from "@material-ui/core";
+
+//import Map from './components/Map/Map';
+import Map from "./components/Map/Map";
+import Header from "./components/Header/Header";
 
 const Map = () => {
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [coords, setCoords] = useState({ lat: 43.7688, lng: -79.3627 });
+ 
+  const onLoad = (autoC) => setAutocomplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoords({ lat, lng });
+  };
+
+  console.log(autocomplete);
+  console.log(coords);
+
+
   return (
-    <div style={{
-        width: '100%',
-        height: 'calc(100vh - 100px)'
-    }}>
-        <input type="text" placeholder="Search" style={{
-            height: '60px',
-            borderRadius: '10px',
-            border: '1px solid rgba(39, 33, 53, 0.25)',
-            padding: '10px 20px',
-            boxSizing: 'border-box',
-            fontSize: '16px',
-            background: '#f1f1f1',
-            flex: 1,
-            width: '60%',
-        }}></input>
-        <Map style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-        }}></Map>
+    <div>
+      <CssBaseline />
+      <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
+
+        <Grid item xs={12} md={4}>
+          <Map coords={coords}/>
+        </Grid>
+    
     </div>
-  )
+  );
 }
 
 export default Map
