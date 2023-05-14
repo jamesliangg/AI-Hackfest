@@ -13,7 +13,7 @@ export async function mongoQueryOne(queryKey, queryValue, mongoDatabase, mongoCo
         const query = { [queryKey]: queryValue };
         queryResult = await collection.findOne(query);
 
-        console.log(queryResult);
+        // console.log(queryResult);
     } catch(err) {
         queryResult = err.message;
     } finally {
@@ -34,7 +34,7 @@ export async function mongoQueryMultiple(queryKey, minValue, maxValue, queryKey2
             [queryKey2]: {$gte : minValue2, $lte : maxValue2}
         }).toArray();
 
-        console.log(queryResult);
+        // console.log(queryResult);
     } catch(err) {
         queryResult = err.message;
     } finally {
@@ -56,7 +56,7 @@ export async function mongoInsertOne(input, mongoDatabase, mongoCollection) {
 
         insertResult = await collection.insertOne(insert);
 
-        console.log(insertResult);
+        // console.log(insertResult);
     } catch(err) {
         insertResult = err.message;
     } finally {
@@ -81,7 +81,7 @@ export async function mongoUpdateOne(queryKey, queryValue, input, mongoDatabase,
             {$set: insert}
         );
 
-        console.log(updateResult);
+        // console.log(updateResult);
     } catch(err) {
         updateResult = err.message;
     } finally {

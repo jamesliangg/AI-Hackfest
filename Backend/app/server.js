@@ -15,6 +15,12 @@ app.get('/', function(req, res, next) {
 app.post('/api/endpoint', async function (req, res) {
     const data = req.body;
     const action = req.body.action;
+    console.log(req.ip);
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
+    console.log(dateTime);
     console.log('Received data: ', data);
     let response = "No action received.";
     let result = "";
@@ -46,15 +52,15 @@ app.post('/api/endpoint', async function (req, res) {
             break;
     }
 
-    console.log("Cohere key: " + process.env.COHERE_API_KEY);
-    console.log("DeepL key: " + process.env.DEEPL_API_KEY);
-    console.log("MongoDB key: " + process.env.MONGO_CONNECT_STRING);
+    // console.log("Cohere key: " + process.env.COHERE_API_KEY);
+    // console.log("DeepL key: " + process.env.DEEPL_API_KEY);
+    // console.log("MongoDB key: " + process.env.MONGO_CONNECT_STRING);
 
     response = JSON.stringify({
         "action": action,
         "result": result
     });
-
+    console.log(response);
     res.send(response);
 });
 
