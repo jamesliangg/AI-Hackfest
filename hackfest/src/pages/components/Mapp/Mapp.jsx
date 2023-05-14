@@ -7,11 +7,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 //import mapStyles from '../../mapStyles';
-import useStyles from "./styles.js";
+import useStyles from "./styles";
 import myImage from "./pointer.png";
 import { LocationOnOutlined } from "@material-ui/icons";
 
-const Map = ({ coords }) => {
+const Mapp = ({ coords }) => {
   const classes = useStyles();
   
   let clinicsData1 = [
@@ -102,4 +102,4 @@ const Marker = (props) => {
   return <div className="SuperAwesomePin"></div>;
 };
 
-export default Map;
+export default Mapp;

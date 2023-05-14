@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CssBaseline, Grid } from "@material-ui/core";
 
-//import Map from './components/Map/Map';
-import Map from "./components/Map/Map";
-import Header from "./components/Header/Header";
+import Mapp from "./components/Mapp/Mapp";
+import Header from './components/Header/Header'
 
 const Map = () => {
   const [autocomplete, setAutocomplete] = useState(null);
@@ -24,15 +23,15 @@ const Map = () => {
 
   return (
     <div>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
 
         <Grid item xs={12} md={4}>
-          <Map coords={coords}/>
+          <Mapp coords={coords}/>
         </Grid>
-    
+      
     </div>
   );
 }
 
-export default Map
+export default Map;

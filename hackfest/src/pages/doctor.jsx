@@ -169,8 +169,7 @@ function Doctor () {
             fontWeight: "400",
             fontSize: "24px",
             padding: "20px 0",
-            margin: 0,
-            padding: 0,
+            margin: 0
           }}>Reviews</h2>
           <Review Star={OneStar} Name="John Doe" Text="Lorem ipsum dolor sit amet consectetur. A eu vitae porta rhoncus vitae nulla nisl sapien. Eget nibh pharetra mi tristique nec. Amet massa eget quis arcu sollicitudin nulla a volutpat egestas. "></Review>
           <Review Star={OneStar} Name="John Doe" Text="Lorem ipsum dolor sit amet consectetur. A eu vitae porta rhoncus vitae nulla nisl sapien. Eget nibh pharetra mi tristique nec. Amet massa eget quis arcu sollicitudin nulla a volutpat egestas. "></Review>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Arrow from '../assets/Arrow.png'
 import { Link } from 'react-router-dom';
+import map from './map';
 
 
 const Landing = () => {
@@ -30,7 +31,7 @@ const Landing = () => {
         alignItems: 'center'
 
       }}>
-        <Link to='/home' style={{
+        <Link to='/map' style={{
           background: '#FDC8E8',
           width: '45%',
           aspectRatio: 1,
