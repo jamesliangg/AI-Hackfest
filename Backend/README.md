@@ -117,7 +117,10 @@ Returns queried data
     "mongoCollection": "clinics",
     "queryKey": "latitude",
     "minValue": 50.27,
-    "maxValue": 50.28
+    "maxValue": 50.28,
+    "queryKey2": "longitude",
+    "minValue2": -119.27,
+    "maxValue2": -119.24
 }
 ```
 

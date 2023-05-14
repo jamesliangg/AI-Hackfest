@@ -23,13 +23,16 @@ export async function mongoQueryOne(queryKey, queryValue, mongoDatabase, mongoCo
     }
 }
 
-export async function mongoQueryMultiple(queryKey, minValue, maxValue, mongoDatabase, mongoCollection) {
+export async function mongoQueryMultiple(queryKey, minValue, maxValue, queryKey2, minValue2, maxValue2, mongoDatabase, mongoCollection) {
     const client = new MongoClient(uri);
     let queryResult = "Error in query";
     try {
         const database = client.db(mongoDatabase);
         const collection = database.collection(mongoCollection);
-        queryResult = await collection.find({[queryKey]: {$gte : minValue, $lte : maxValue}}).toArray();
+        queryResult = await collection.find({
+            [queryKey]: {$gte : minValue, $lte : maxValue},
+            [queryKey2]: {$gte : minValue2, $lte : maxValue2}
+        }).toArray();
 
         console.log(queryResult);
     } catch(err) {

@@ -27,7 +27,7 @@ app.post('/api/endpoint', async function (req, res) {
             result = await mongoQueryOne(req.body.queryKey, req.body.queryValue, req.body.mongoDatabase, req.body.mongoCollection);
             break;
         case "fetchMongoMultiple":
-            result = await mongoQueryMultiple(req.body.queryKey, req.body.minValue, req.body.maxValue, req.body.mongoDatabase, req.body.mongoCollection);
+            result = await mongoQueryMultiple(req.body.queryKey, req.body.minValue, req.body.maxValue, req.body.queryKey2, req.body.minValue2, req.body.maxValue2, req.body.mongoDatabase, req.body.mongoCollection);
             break;
         case "updateMongo":
             result = await mongoUpdateOne(req.body.queryKey, req.body.queryValue, req.body.updateValue, req.body.mongoDatabase, req.body.mongoCollection);
