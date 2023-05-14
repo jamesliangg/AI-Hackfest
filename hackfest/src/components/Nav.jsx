@@ -9,6 +9,7 @@ const Nav = () => {
       alignItems: 'center',
       justifyContent: 'space-between',
       height: '100px',
+      background: '#f1f1f1'
      }}>
 
       <Link style={{

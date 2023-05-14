@@ -5,6 +5,7 @@ import Home from './pages/home'
 import Landing from "./pages/landing"
 import Doctor from "./pages/doctor"
 import Bookmarks from "./pages/bookmarks"
+import Map from "./pages/map"
 import './index.css'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/doctor" element={<Doctor />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
+        <Route path="/map" element={<Map />} />
       </Routes>
     </div>
     </Router>

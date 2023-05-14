@@ -3,6 +3,11 @@
   padding: 0 150px;
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f1f1f1;
 }
 
 /* :root {

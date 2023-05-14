@@ -9,6 +9,7 @@ import FourStar from '../assets/4Star.png'
 import FiveStar from '../assets/5Star.png'
 import Saved from '../assets/Saved.png'
 import Unsaved from '../assets/Unsaved.png'
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   // const [selected,setSelected] = useState(false)
@@ -27,14 +28,16 @@ export const Home = () => {
         justifyContent: 'space-between',
         height: 'calc(100vh - 100px)',
       }}>
-        <div style={{
+        <Link to='/map' style={{
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
+          textDecoration: 'none',
+          color: '#272135'
         }}>
           <img src={Location} alt="" />
           <p>Location</p>
-        </div>
+        </Link>
 
         <input type="text" placeholder="Search" style={{
           height: '60px',
@@ -42,7 +45,8 @@ export const Home = () => {
           border: '1px solid rgba(39, 33, 53, 0.25)',
           padding: '10px 20px',
           boxSizing: 'border-box',
-          fontSize: '16px'
+          fontSize: '16px',
+          background: '#f1f1f1'
         }}></input>
 
         {/* filter */}
