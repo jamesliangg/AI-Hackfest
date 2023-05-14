@@ -7,7 +7,8 @@ const Nav = () => {
     <div style={{
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      height: '100px',
      }}>
 
       <div style={{
