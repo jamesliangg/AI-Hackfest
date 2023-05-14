@@ -27,7 +27,7 @@ const Nav = () => {
           }}/>
         <h2 style={{
           fontWeight: '400'
-        }}>FindYours</h2>
+        }}>HEALTHWISE</h2>
       </Link>
       
 
