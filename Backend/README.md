@@ -23,8 +23,13 @@ Azure Container Creation
 ```
 az container create --resource-group myResourceGroup --name mycontainer \
     --image docker.io/jamesliangg/hackfest --environment-variables COHERE_API_KEY="<COHERE_KEY>" DEEPL_API_KEY="<DEEPL_KEY>" \
-    MONGO_CONNECT_STRING="<MONGO_CONNECT_STRING>" MONGO_DATABASE="<MONGO_DATABASE>" MONGO_COLLECTION="<MONGO_COLLECTION>" \ 
+    MONGO_CONNECT_STRING="<MONGO_CONNECT_STRING>" \ 
     --ip-address Public --ports 80 3001 --os-type Linux
+```
+
+MongoDB Import CSV
+```
+mongoimport --uri "<MONGO_CONNECT_STRING>" --db <MONGO_DATABASE> --collection <MONGO_COLLECTION> --drop --file <LOCAL_CSV_DIRECTORY> --type csv --headerline
 ```
 
 # API Doucmentation
