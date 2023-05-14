@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Saved from '../assets/Saved.png'
 import Unsaved from '../assets/Unsaved.png'
+import { Link } from 'react-router-dom';
+
 
 function DoctorProfile({ Name, Location, Stars, Bookmark}) {
     const [saved, setSaved] = useState(Bookmark)
@@ -8,7 +10,7 @@ function DoctorProfile({ Name, Location, Stars, Bookmark}) {
         setSaved(prevSaved => !prevSaved)
     }
   return (
-    <div style={{
+    <Link to='/doctor' style={{
         border: '3px solid #272135',
         borderRadius: '30px',
         display: 'flex',
@@ -17,7 +19,9 @@ function DoctorProfile({ Name, Location, Stars, Bookmark}) {
         width: "100%",
         boxSizing: 'border-box',
         padding: "2px",
-        gap: '20px'
+        gap: '20px',
+        textDecoration: 'none',
+        color: "#272135"
     }}>
         <img src="" alt="" style={{
             background: '#D7ECEB',
@@ -74,7 +78,7 @@ function DoctorProfile({ Name, Location, Stars, Bookmark}) {
             objectFit: 'contain',
             paddingRight: '30px',
         }}/> */}
-    </div>
+    </Link>
   )
 }
 

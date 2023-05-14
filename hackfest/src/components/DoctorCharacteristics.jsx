@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
 
-function FilterButton({ Text }) {
-    const [state, setState] = useState(0)
-    function toggleButton () {
-        setState(prevState => !prevState)
-    }
+function DoctorCharacteristics({ Text, Background }) {
   return (
     <button
-    onClick={toggleButton}
-    style={ state ? {
+    style={ Background == "Coloured" ? {
         color: '#272135',
         padding: '10px 16px',
         border: '1px solid #D7ECEB',
         borderRadius: '10px',
         height: 'min-content',
-        width: 'min-content',
+        width: 'fit-content',
         margin: 0,
         background: '#D7ECEB',
         boxSizing: 'border-box',
-        fontSize: '14px'
+        fontSize: '16px',
+        fontWeight: '400',
     } : {
-        color: '#f1f1f1',
+        color: '#272135',
         padding: '10px 16px',
-        border: '1px solid rgba(241, 241, 241, 0.25)',
+        border: '1px solid #272135',
         borderRadius: '10px',
         height: 'min-content',
-        width: 'min-content',
+        width: 'fit-content',
         margin: 0,
         background: 'transparent',
         boxSizing: 'border-box',
-        fontSize: '14px'
+        fontSize: '16px',
+        fontWeight: '400',
     }
     }>
         {Text}
@@ -37,4 +34,4 @@ function FilterButton({ Text }) {
   )
 }
 
-export default FilterButton
+export default DoctorCharacteristics
