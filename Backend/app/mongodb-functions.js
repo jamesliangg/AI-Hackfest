@@ -14,6 +14,29 @@ export async function mongoQueryOne(queryKey, queryValue, mongoDatabase, mongoCo
         queryResult = await collection.findOne(query);
 
         console.log(queryResult);
+    } catch(err) {
+        queryResult = err.message;
+    } finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+        return queryResult;
+    }
+}
+
+export async function mongoQueryMultiple(queryKey, minValue, maxValue, queryKey2, minValue2, maxValue2, mongoDatabase, mongoCollection) {
+    const client = new MongoClient(uri);
+    let queryResult = "Error in query";
+    try {
+        const database = client.db(mongoDatabase);
+        const collection = database.collection(mongoCollection);
+        queryResult = await collection.find({
+            [queryKey]: {$gte : minValue, $lte : maxValue},
+            [queryKey2]: {$gte : minValue2, $lte : maxValue2}
+        }).toArray();
+
+        console.log(queryResult);
+    } catch(err) {
+        queryResult = err.message;
     } finally {
         // Ensures that the client will close when you finish/error
         await client.close();
@@ -34,6 +57,8 @@ export async function mongoInsertOne(input, mongoDatabase, mongoCollection) {
         insertResult = await collection.insertOne(insert);
 
         console.log(insertResult);
+    } catch(err) {
+        insertResult = err.message;
     } finally {
         // Ensures that the client will close when you finish/error
         await client.close();
@@ -57,6 +82,8 @@ export async function mongoUpdateOne(queryKey, queryValue, input, mongoDatabase,
         );
 
         console.log(updateResult);
+    } catch(err) {
+        updateResult = err.message;
     } finally {
         // Ensures that the client will close when you finish/error
         await client.close();

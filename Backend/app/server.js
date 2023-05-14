@@ -3,7 +3,7 @@ const app = express();
 import bodyParser from "body-parser";
 import {cohereDetectLanguage} from "./cohere-functions.js";
 import {deepTranslate} from "./deepl-functions.js";
-import {mongoInsertOne, mongoUpdateOne, mongoQueryOne} from "./mongodb-functions.js";
+import {mongoInsertOne, mongoUpdateOne, mongoQueryOne, mongoQueryMultiple} from "./mongodb-functions.js";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,6 +25,9 @@ app.post('/api/endpoint', async function (req, res) {
             break;
         case "fetchMongo":
             result = await mongoQueryOne(req.body.queryKey, req.body.queryValue, req.body.mongoDatabase, req.body.mongoCollection);
+            break;
+        case "fetchMongoMultiple":
+            result = await mongoQueryMultiple(req.body.queryKey, req.body.minValue, req.body.maxValue, req.body.queryKey2, req.body.minValue2, req.body.maxValue2, req.body.mongoDatabase, req.body.mongoCollection);
             break;
         case "updateMongo":
             result = await mongoUpdateOne(req.body.queryKey, req.body.queryValue, req.body.updateValue, req.body.mongoDatabase, req.body.mongoCollection);
