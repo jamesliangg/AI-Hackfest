@@ -17,40 +17,39 @@ app.post('/api/endpoint', async function (req, res) {
     const action = req.body.action;
     console.log('Received data: ', data);
     let response = "No action received.";
+    let result = "";
+
+    switch(action) {
+        case "writeMongo":
+            result = await mongoInsertOne(req.body.input, req.body.mongoDatabase, req.body.mongoCollection);
+            break;
+        case "fetchMongo":
+            result = await mongoQueryOne(req.body.queryKey, req.body.queryValue, req.body.mongoDatabase, req.body.mongoCollection);
+            break;
+        case "updateMongo":
+            result = await mongoUpdateOne(req.body.queryKey, req.body.queryValue, req.body.updateValue, req.body.mongoDatabase, req.body.mongoCollection);
+            break;
+        case "translate":
+            let translatedText = await deepTranslate(req.body.inputText, req.body.targetLanguage);
+            result = {
+                "translatedText": translatedText,
+                "targetLanguage": req.body.targetLanguage
+            }
+            break;
+        case "detectLanguage":
+            let inputLanguage = await cohereDetectLanguage(req.body.inputText);
+            inputLanguage = inputLanguage.body.results[0].language_code;
+            result = {"inputLanguage": inputLanguage};
+            break;
+    }
 
     console.log("Cohere key: " + process.env.COHERE_API_KEY);
-    // let sampleText = "'Здравствуй, Мир'";
-    // let cohereResponse = await cohereDetectLanguage(sampleText);
-    // cohereResponse = cohereResponse.body.results[0];
-    // console.log(cohereResponse);
-
     console.log("DeepL key: " + process.env.DEEPL_API_KEY);
-    // sampleText = "Hello world!";
-    // let deeplResponse =  await deepTranslate(sampleText, "fr");
-
     console.log("MongoDB key: " + process.env.MONGO_CONNECT_STRING);
-    const insert = {
-        ingredient: 'bubble tea',
-        health: true,
-        filler: false,
-        taste: true
-    };
-    const update = {
-        health: false,
-        filler: true,
-        taste: false
-    };
-    const queryKey = "ingredient";
-    const queryValue = "bubble tea";
-    // let mongoResponse = await mongoQuery(queryKey, queryValue, process.env.MONGO_DATABASE, process.env.MONGO_COLLECTION);
-    // let mongoResponse = await mongoInsertOne(insert, process.env.MONGO_DATABASE, process.env.MONGO_COLLECTION);
-    // let mongoResponse = await mongoUpdateOne(queryKey, queryValue, update, process.env.MONGO_DATABASE, process.env.MONGO_COLLECTION);
 
     response = JSON.stringify({
         "action": action,
-        // "cohere": cohereResponse,
-        // "deepl": deeplResponse,
-        // "mongo": mongoResponse
+        "result": result
     });
 
     res.send(response);
