@@ -47,7 +47,7 @@ export const Home = () => {
         {/* filter */}
         <div style={{
           background: '#272135',
-          borderRadius: '20px',
+          borderRadius: '20px 20px 0 0',
           padding: '40px 40px 20px 40px',
           display: 'flex',
           flexDirection: 'column',
@@ -163,7 +163,10 @@ export const Home = () => {
 
       <div style={{
         flexGrow: 1,
-        overflowY: 'scroll'
+        overflowY: 'scroll',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: "20px"
       }}>
         <DoctorProfile Name="John Doe" Location="Look behind you" Stars={FiveStar} Bookmark={false} />
         <DoctorProfile Name="John Doe" Location="Look behind you" Stars={FiveStar} Bookmark={false} />
