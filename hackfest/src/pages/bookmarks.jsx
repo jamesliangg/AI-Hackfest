@@ -12,13 +12,13 @@ const Bookmarks = () => {
     <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '40px'
+        gap: '40px',
+        paddingBottom: '400px'
     }}>
         <h2 style={{
             fontSize: '32px',
             fontWeight: '400',
             padding: 0,
-            // margin: 0
         }}>Your Bookmarked</h2>
         
         <DoctorProfile Name="John Doe" Location="Look behind you" Stars={FiveStar} Bookmark={true} />

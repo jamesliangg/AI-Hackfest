@@ -30,27 +30,53 @@ const Landing = () => {
         alignItems: 'center'
 
       }}>
-        <div style={{
+        <Link to='/home' style={{
           background: '#FDC8E8',
           width: '45%',
           aspectRatio: 1,
           borderRadius: '30px',
-          border: '2px solid #2D263D'
-        }}></div>
-        <div style={{
-          background: '#FDC8E8',
+          border: '2px solid #2D263D',
+          color: '#2D263D',
+          textDecoration: 'none',
+          fontSize: '48px',
+          padding: "0 40px",
+          boxSizing: 'border-box',
+          display: 'flex',
+          textAlign: 'center',
+          alignItems: 'center'
+        }}>
+          <p>FIND NEARBY DOCTORS</p>
+        </Link>
+        <Link to='/home' style={{
+          background: '#EBEBEB',
           width: '45%',
           aspectRatio: 1,
           borderRadius: '30px',
-          border: '2px solid #2D263D'
-        }}></div>
-        <div style={{
-          background: '#FDC8E8',
+          border: '2px solid #2D263D',
+          color: '#2D263D',
+          textDecoration: 'none',
+          fontSize: '48px',
+          padding: "0 40px",
+          boxSizing: 'border-box',
+          display: 'flex',
+          textAlign: 'center',
+          alignItems: 'center'
+        }}>LEARN ABOUT YOUR DOCTOR</Link>
+        <Link to='/home' style={{
+          background: '#D7ECEB',
           width: '45%',
           aspectRatio: 1,
           borderRadius: '30px',
-          border: '2px solid #2D263D'
-        }}></div>
+          border: '2px solid #2D263D',
+          color: '#2D263D',
+          textDecoration: 'none',
+          fontSize: '48px',
+          padding: "0 40px",
+          boxSizing: 'border-box',
+          display: 'flex',
+          textAlign: 'center',
+          alignItems: 'center'
+        }}>RATE YOUR DOCTOR</Link>
 
         <Link to="/home" style={{
           borderRadius: '50%',

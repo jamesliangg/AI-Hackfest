@@ -34,7 +34,8 @@ function Doctor () {
           borderRadius: "20px",
           height: "fit-content",
           padding: '30px',
-          color: '#f1f1f1'
+          color: '#f1f1f1',
+          fontSize: '16px'
         }}>
           <p>Address</p>
           <p>412-234-3432</p>

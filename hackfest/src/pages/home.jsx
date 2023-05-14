@@ -41,7 +41,8 @@ export const Home = () => {
           borderRadius: '10px',
           border: '1px solid rgba(39, 33, 53, 0.25)',
           padding: '10px 20px',
-          boxSizing: 'border-box'
+          boxSizing: 'border-box',
+          fontSize: '16px'
         }}></input>
 
         {/* filter */}
@@ -166,7 +167,8 @@ export const Home = () => {
         overflowY: 'scroll',
         display: 'flex',
         flexDirection: 'column',
-        gap: "20px"
+        gap: "20px",
+        paddingBottom: '400px'
       }}>
         <DoctorProfile Name="John Doe" Location="Look behind you" Stars={FiveStar} Bookmark={false} />
         <DoctorProfile Name="John Doe" Location="Look behind you" Stars={FiveStar} Bookmark={false} />
