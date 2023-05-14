@@ -2,9 +2,9 @@ import {MongoClient} from "mongodb";
 
 // Replace the uri string with your connection string.
 let uri = process.env.MONGO_CONNECT_STRING;
-const client = new MongoClient(uri);
 
 export async function mongoQueryOne(queryKey, queryValue, mongoDatabase, mongoCollection) {
+    const client = new MongoClient(uri);
     let queryResult = "Error in query";
     try {
         const database = client.db(mongoDatabase);
@@ -22,6 +22,7 @@ export async function mongoQueryOne(queryKey, queryValue, mongoDatabase, mongoCo
 }
 
 export async function mongoInsertOne(input, mongoDatabase, mongoCollection) {
+    const client = new MongoClient(uri);
     let insertResult = "Error in insert";
     try {
         const database = client.db(mongoDatabase);
@@ -41,6 +42,7 @@ export async function mongoInsertOne(input, mongoDatabase, mongoCollection) {
 }
 
 export async function mongoUpdateOne(queryKey, queryValue, input, mongoDatabase, mongoCollection) {
+    const client = new MongoClient(uri);
     let updateResult = "Error in update";
     try {
         const database = client.db(mongoDatabase);
